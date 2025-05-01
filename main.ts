@@ -30,7 +30,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile20`, function (sprite, 
         game.showLongText("NEED MORE MONEY", DialogLayout.Center)
     } else if (Slave_Money.value >= 30) {
         for (let value of tiles.getTilesByType(assets.tile`myTile8`)) {
-            tiles.setTileAt(value, assets.tile`myTile22`)
+            tiles.setTileAt(value, assets.tile`myTile8`)
             tiles.setWallAt(value, false)
         }
     } else {
@@ -43,7 +43,7 @@ scene.onOverlapTile(SpriteKind.BetterMonkey, assets.tile`myTile0`, function (spr
     tiles.setTileAt(location, assets.tile`myTile7`)
 })
 sprites.onOverlap(SpriteKind.Nigger, SpriteKind.Nigger, function (sprite, otherSprite) {
-    tiles.placeOnRandomTile(otherSprite, assets.tile`myTile`)
+    tiles.placeOnRandomTile(otherSprite, assets.tile`myTile10`)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Owner, function (sprite, otherSprite) {
     if (Sugar_Cane_Task.value >= 200) {
@@ -89,7 +89,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Manager, function (sprite, other
         `)
     pause(5000)
     Slave_Bar.value += -1
-    tiles.placeOnRandomTile(otherSprite, assets.tile`myTile6`)
+    tiles.placeOnRandomTile(otherSprite, assets.tile`myTile10`)
     tiles.setWallAt(otherSprite.tilemapLocation(), true)
 })
 scene.onOverlapTile(SpriteKind.Monkey, assets.tile`myTile0`, function (sprite, location) {
@@ -121,7 +121,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile11`, function (sprite, 
                 . . . . . f f . . f f . . . . . 
                 `, SpriteKind.Nigger)
             Black_Nigger.sayText("ZZZ...")
-            tiles.placeOnRandomTile(Black_Nigger, assets.tile`myTile`)
+            tiles.placeOnRandomTile(Black_Nigger, assets.tile`myTile10`)
         }
     }
 })
@@ -473,6 +473,7 @@ scene.setBackgroundImage(img`
     `)
 game.splash("A totally normal Game")
 Days = 1
+let Slaves = 20
 if (game.ask("Are you black ", true)) {
     game.splash("work on the slave plantaions")
     tiles.setCurrentTilemap(tilemap`level2`)
@@ -528,7 +529,7 @@ if (game.ask("Are you black ", true)) {
         . . . f f f f f f . . . 
         . . . f f . . f f . . . 
         `, SpriteKind.Owner)
-    tiles.placeOnTile(Slave_owner, tiles.getTileLocation(45, 20))
+    tiles.placeOnRandomTile(Slave_owner, assets.tile`myTile`)
     scene.cameraFollowSprite(Slave_owner)
     Slave_owner.setFlag(SpriteFlag.GhostThroughWalls, true)
     info.setLife(50)
@@ -577,7 +578,7 @@ if (game.ask("Are you black ", true)) {
         `, SpriteKind.PlayerOwner)
     controller.moveSprite(mySprite2)
     tiles.setCurrentTilemap(tilemap`level10`)
-    scene.cameraFollowSprite(mySprite)
+    scene.cameraFollowSprite(mySprite2)
 } else {
 	
 }
